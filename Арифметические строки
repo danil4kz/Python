@@ -1,0 +1,35 @@
+Вводятся 3 строки в случайном порядке. Напишите программу, которая выясняет, можно ли из длин этих строк построить арифметическую прогрессию.
+
+Сначала сделал так:
+
+a, b, c = len(input()), len(input()), len(input())
+a1 = min(a, b, c)
+a3 = max(a, b, c)
+if a == a1 and c == a3:
+    a2 = b
+elif b == a1 and c == a3:
+    a2 = a
+elif a == a1 and b == a3:
+    a2 = c
+elif b == a1 and a == a3:
+    a2 = c    
+elif c == a1 and a == a3:
+    a2 = b    
+elif c == a1 and b == a3:
+    a2 = a
+    
+if a3 - a2 == a2 - a1:
+    print('YES')
+else:
+    print('NO')
+
+Потом укоротил до такого сосотояния:
+
+a = len(input())
+b = len(input())
+c = len(input())
+
+if (2 * a - b - c) * (2 * b - a - c) * (2 * c - a - b) == 0:
+    print('YES')
+else:
+    print('NO')
