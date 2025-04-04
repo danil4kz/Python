@@ -1,0 +1,31 @@
+Напишите программу, которая упорядочивает три числа от большего к меньшему.
+
+
+
+
+a, b, c = int(input()), int(input()), int(input())
+mini = min(a, b, c)
+maxi = max(a, b, c)
+if mini == a and maxi == c:
+    sr = b
+elif mini == a and maxi == b:
+    sr = c
+elif mini == b and maxi == c:
+    sr = a
+elif mini == b and maxi == a:
+    sr = c    
+elif mini == c and maxi == b:
+    sr = a    
+elif mini == c and maxi == a:
+    sr = b    
+print(maxi, sr, mini, sep='\n') 
+
+
+А потом, я додумался до этого:
+
+
+
+a, b, c = int(input()), int(input()), int(input())
+print(max(a, b, c))
+print(a + b + c - min(a, b, c) - max(a, b, c))
+print(min(a, b, c))
