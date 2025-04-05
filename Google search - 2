@@ -1,0 +1,27 @@
+На вход программе подаются натуральное число n, затем n строк, затем число k – количество поисковых запросов, затем k строк – поисковые запросы. 
+Напишите программу, которая выводит все введённые строки, в которых встречаются одновременно все поисковые запросы.
+
+n = int(input())
+sn = []
+for i in range(n):
+    s = input()
+    sn.append(s)
+k = int(input())
+sk = []
+for i1 in range(k):
+    zapros = input()
+    list_str = []
+    for i2 in range(len(sn)):
+        if zapros.lower() in sn[i2].lower():
+            list_str.append(sn[i2])
+    sk.append(list_str)
+result = sk[0]
+for arr in sk:
+    temp = []
+    for str1 in result:
+        for str2 in arr:
+            if str1 == str2:
+                temp.append(str1)
+    result = temp
+    # result = list(set(result) & set(arr))
+print(*result, sep = '\n')
